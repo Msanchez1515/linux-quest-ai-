@@ -165,17 +165,15 @@ def corregir_comando(reto, respuesta):
     respuesta = respuesta.strip()
     correctas = RESPUESTAS.get(reto, [])
     correcto = any(respuesta.lower() == c.lower() for c in correctas)
- 
     if correcto:
-        explicacion = f"✅ ¡Correcto! `{respuesta}` es el comando adecuado."
+        explicacion = f"✅ ¡CORRECTO! '{respuesta}' es el comando adecuado."
     else:
         if correctas:
-            explicacion = f"❌ No es correcto. El comando esperado era: `{correctas[0]}`"
+            explicacion = f"❌ NO ES CORRECTO. El comando era: '{correctas[0]}'"
         else:
-            explicacion = "❌ No es correcto. Inténtalo de nuevo."
- 
+            explicacion = "❌ NO ES CORRECTO. Inténtalo de nuevo."
     return correcto, explicacion
  
  
 def obtener_pista(reto):
-    return PISTAS.get(reto, "Intenta recordar qué hace este tipo de operación en Linux.")
+    return PISTAS.get(reto, "Piensa qué tipo de operación necesitas hacer en Linux.")
